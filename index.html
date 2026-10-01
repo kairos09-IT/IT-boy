@@ -1,1 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kairos Computer Learning</title>
 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #061522;
+            color: white;
+        }
+
+        header {
+            background: #0b2940;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4db8ff;
+            font-size: 38px;
+        }
+
+        h2 {
+            color: #4db8ff;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        button {
+            background: #1683d8;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #35a8ff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: #0d2638;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #31536b;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            color: #4db8ff;
+        }
+
+        .tip {
+            background: #123b55;
+            padding: 15px;
+            border-left: 4px solid #4db8ff;
+            margin: 12px 0;
+            border-radius: 5px;
+        }
+
+        .website {
+            background: #102f46;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .website a {
+            color: #4db8ff;
+            font-weight: bold;
+        }
+
+        .keyboard {
+            font-size: 40px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #8ca6b8;
+        }
+
+        #computerPage {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HOME -->
+
+    <div id="homePage">
+
+        <header>
+            <div class="keyboard">⌨️</div>
+
+            <h1>Kairos Computer Learning</h1>
+
+            <p>
+                Learn computer basics, keyboard shortcuts,
+                and typing skills.
+            </p>
+
+            <button onclick="openComputerBasics()">
+                Start Learning
+            </button>
+        </header>
+
+        <div class="container">
+
+            <div class="card">
+                <h2>💻 What will you learn?</h2>
+
+                <p>⌨️ Keyboard shortcuts</p>
+                <p>⚡ Faster and more accurate typing</p>
+                <p>🌐 Useful learning websites</p>
+                <p>🧠 Basic computer knowledge</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LEARNING PAGE -->
+
+    <div id="computerPage">
+
+        <header>
+            <h1>💻 Computer Basics</h1>
+
+            <p>
+                Build your computer skills step by step.
+            </p>
+        </header>
+
+        <div class="container">
+
+
+            <!-- SHORTCUTS -->
+
+            <div class="card">
+
+                <h2>⌨️ Keyboard Shortcuts</h2>
+
+                <table>
+
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + C</td>
+                        <td>Copy</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + V</td>
+                        <td>Paste</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + X</td>
+                        <td>Cut</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + Z</td>
+                        <td>Undo</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + Y</td>
+                        <td>Redo</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + S</td>
+                        <td>Save</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + A</td>
+                        <td>Select everything</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ctrl + F</td>
+                        <td>Find text</td>
+                    </tr>
+
+                    <tr>
+                        <td>Alt + Tab</td>
+                        <td>Switch between apps</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <!-- TYPING -->
+
+            <div class="card">
+
+                <h2>⌨️ How to Improve Typing Fluency</h2>
+
+                <p>
+                    Typing fluency means typing comfortably,
+                    accurately, and without constantly looking
+                    at the keyboard.
+                </p>
+
+                <div class="tip">
+                    <b>1. Learn touch typing</b>
+                    <br>
+                    Try to use all your fingers instead of
+                    typing with only two fingers.
+                </div>
+
+                <div class="tip">
+                    <b>2. Focus on accuracy</b>
+                    <br>
+                    Don't sacrifice accuracy for speed.
+                    Speed naturally improves with practice.
+                </div>
+
+                <div class="tip">
+                    <b>3. Practice regularly</b>
+                    <br>
+                    Practice for around 10–20 minutes regularly
+                    instead of doing one huge session.
+                </div>
+
+                <div class="tip">
+                    <b>4. Don't look at the keyboard</b>
+                    <br>
+                    Gradually train your fingers to remember
+                    where the keys are.
+                </div>
+
+                <div class="tip">
+                    <b>5. Track your progress</b>
+                    <br>
+                    Check your WPM and accuracy from time to time.
+                </div>
+
+            </div>
+
+
+            <!-- TYPING WEBSITES -->
+
+            <div class="card">
+
+                <h2>🌐 Websites for Typing Practice</h2>
+
+
+                <div class="website">
+
+                    <h3>⌨️ TypingClub</h3>
+
+                    <p>
+                        Learn touch typing through structured
+                        lessons and exercises.
+                    </p>
+
+                    <a href="https://www.typingclub.com/"
+                       target="_blank">
+                        Visit TypingClub →
+                    </a>
+
+                </div>
+
+
+                <div class="website">
+
+                    <h3>⚡ Monkeytype</h3>
+
+                    <p>
+                        Practice typing speed, accuracy,
+                        and different typing modes.
+                    </p>
+
+                    <a href="https://monkeytype.com/"
+                       target="_blank">
+                        Visit Monkeytype →
+                    </a>
+
+                </div>
+
+
+                <div class="website">
+
+                    <h3>🎮 Nitro Type</h3>
+
+                    <p>
+                        Practice typing through a racing-style
+                        game.
+                    </p>
+
+                    <a href="https://www.nitrotype.com/"
+                       target="_blank">
+                        Visit Nitro Type →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPUTER KNOWLEDGE -->
+
+            <div class="card">
+
+                <h2>🧠 Basic Computer Knowledge</h2>
+
+                <p>
+                    <b>CPU</b> → Processes instructions.
+                </p>
+
+                <p>
+                    <b>RAM</b> → Temporarily stores data
+                    programs are using.
+                </p>
+
+                <p>
+                    <b>Storage</b> → Stores files and programs
+                    long-term.
+                </p>
+
+                <p>
+                    <b>Operating System</b> → Software such as
+                    Windows, macOS, Linux, Android, and iOS
+                    that manages the device.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>🚀 Keep Learning</h2>
+
+                <p>
+                    HTML → CSS → JavaScript → Programming
+                </p>
+
+                <button onclick="goHome()">
+                    ← Back to Home
+                </button>
+
+            </div>
+
+        </div>
+
+        <footer>
+            Made by Kairos 💙
+        </footer>
+
+    </div>
+
+
+    <script>
+
+        function openComputerBasics() {
+
+            document.getElementById("homePage").style.display = "none";
+
+            document.getElementById("computerPage").style.display = "block";
+
+            window.scrollTo(0, 0);
+        }
+
+
+        function goHome() {
+
+            document.getElementById("computerPage").style.display = "none";
+
+            document.getElementById("homePage").style.display = "block";
+
+            window.scrollTo(0, 0);
+        }
+
+    </script>
+
+</body>
+</html>
