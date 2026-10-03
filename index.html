@@ -1,806 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kairos Typing - Learn computer basics, keyboard shortcuts, and improve your typing skills.">
-  <title>Kairos Typing | Computer & Typing Guide</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #07111f;
-      color: #eaf6ff;
-      line-height: 1.7;
-    }
-
-    /* NAVIGATION */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(5, 15, 28, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #163653;
-      padding: 15px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #42c8ff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
-
-    nav a {
-      color: #c8d9e8;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #42c8ff;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 50px 20px;
-      background:
-        radial-gradient(circle at top, #10385c 0%, #07111f 55%);
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      color: #42c8ff;
-      margin-bottom: 15px;
-      text-shadow: 0 0 30px rgba(66, 200, 255, 0.35);
-    }
-
-    .hero h2 {
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #a9bfd1;
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: auto;
-    }
-
-    .buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 13px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    .primary {
-      background: #42c8ff;
-      color: #04101c;
-    }
-
-    .secondary {
-      border: 1px solid #42c8ff;
-      color: #42c8ff;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(66, 200, 255, 0.2);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 80px 7%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      font-size: 2.4rem;
-      color: #42c8ff;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #91a9bb;
-    }
-
-    /* CARDS */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: #0c1c2d;
-      border: 1px solid #173b58;
-      border-radius: 16px;
-      padding: 25px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #42c8ff;
-      box-shadow: 0 10px 35px rgba(0, 150, 255, 0.1);
-    }
-
-    .card .icon {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      color: #70d5ff;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: #a8bac9;
-    }
-
-    /* COMPUTER WORK */
-    .info-box {
-      background: #0b1b2b;
-      border-left: 4px solid #42c8ff;
-      border-radius: 10px;
-      padding: 25px;
-      margin-bottom: 20px;
-    }
-
-    .info-box h3 {
-      color: #42c8ff;
-      margin-bottom: 8px;
-    }
-
-    /* TYPING */
-    .typing-area {
-      background: #0b1b2b;
-      border: 1px solid #173b58;
-      border-radius: 18px;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .keyboard {
-      margin: 25px auto;
-      max-width: 800px;
-      font-family: monospace;
-      color: #72d8ff;
-      background: #050c14;
-      border-radius: 12px;
-      padding: 20px;
-      overflow-x: auto;
-    }
-
-    .keyboard div {
-      white-space: nowrap;
-      margin: 6px 0;
-    }
-
-    .key {
-      display: inline-block;
-      border: 1px solid #31526b;
-      border-radius: 5px;
-      padding: 7px 10px;
-      margin: 2px;
-      min-width: 32px;
-      color: #cfeeff;
-      background: #102335;
-    }
-
-    /* SHORTCUTS */
-    .shortcut {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #0c1c2d;
-      padding: 15px 20px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #173b58;
-    }
-
-    kbd {
-      background: #050c14;
-      border: 1px solid #31526b;
-      padding: 5px 9px;
-      border-radius: 5px;
-      color: #70d5ff;
-    }
-
-    /* PRACTICE LINKS */
-    .practice-card {
-      text-align: center;
-    }
-
-    .practice-card a {
-      display: inline-block;
-      margin-top: 15px;
-      color: #42c8ff;
-      text-decoration: none;
-      border: 1px solid #42c8ff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .practice-card a:hover {
-      background: #42c8ff;
-      color: #04101c;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      border-top: 1px solid #173653;
-      color: #7891a5;
-      background: #050c14;
-    }
-
-    footer strong {
-      color: #42c8ff;
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      nav ul {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      section {
-        padding: 60px 5%;
-      }
-
-      .shortcut {
-        gap: 15px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kairos Type</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#" class="logo">KAIROS TYPING</a>
+<header>
+    <div class="logo">⌨️ Kairos Type</div>
 
-    <ul>
-      <li><a href="#basics">Basics</a></li>
-      <li><a href="#parts">Parts</a></li>
-      <li><a href="#typing">Typing</a></li>
-      <li><a href="#shortcuts">Shortcuts</a></li>
-      <li><a href="#practice">Practice</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <button class="nav-btn active" data-page="practice">Practice</button>
+        <button class="nav-btn" data-page="courses">Courses</button>
+        <button class="nav-btn" data-page="settings">Settings</button>
+    </nav>
+</header>
 
+<main>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>KAIROS</h1>
-      <h2>Typing & Computer Basics</h2>
+    <!-- PRACTICE -->
+    <section id="practice" class="page active">
 
-      <p>
-        Learn how computers work, understand the important parts,
-        master keyboard shortcuts, and improve your typing skills.
-      </p>
+        <div class="top-info">
+            <div>
+                <span>WPM</span>
+                <strong id="wpm">0</strong>
+            </div>
 
-      <div class="buttons">
-        <a href="#basics" class="btn primary">Start Learning</a>
-        <a href="#practice" class="btn secondary">Practice Typing</a>
-      </div>
-    </div>
-  </header>
+            <div>
+                <span>Accuracy</span>
+                <strong id="accuracy">100%</strong>
+            </div>
 
+            <div>
+                <span>Errors</span>
+                <strong id="errors">0</strong>
+            </div>
 
-  <!-- COMPUTER BASICS -->
-  <section id="basics">
-
-    <div class="section-title">
-      <h2>🖥️ Computer Basics</h2>
-      <p>Start with the fundamentals.</p>
-    </div>
-
-    <div class="info-box">
-      <h3>What is a computer?</h3>
-
-      <p>
-        A computer is an electronic machine that receives information,
-        processes it, stores it, and produces useful results.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h3>What does a computer do?</h3>
-
-      <p>
-        Computers can calculate numbers, store files, display images,
-        play music and videos, connect to the internet, run applications,
-        and help people create and communicate.
-      </p>
-    </div>
-
-  </section>
-
-
-  <!-- COMPUTER PARTS -->
-  <section id="parts">
-
-    <div class="section-title">
-      <h2>⚙️ Main Computer Parts</h2>
-      <p>Understand the hardware inside and around your computer.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">🧠</div>
-        <h3>CPU</h3>
-        <p>
-          The Central Processing Unit executes instructions
-          and performs calculations.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">⚡</div>
-        <h3>RAM</h3>
-        <p>
-          RAM temporarily holds data that programs are actively using.
-          More RAM helps with multitasking.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💾</div>
-        <h3>Storage</h3>
-        <p>
-          SSDs and hard drives store your operating system,
-          applications, photos, videos, and files.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🎮</div>
-        <h3>GPU</h3>
-        <p>
-          A Graphics Processing Unit handles graphics and
-          helps create images, games, and visual effects.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">⌨️</div>
-        <h3>Keyboard</h3>
-        <p>
-          A keyboard allows you to enter letters, numbers,
-          commands, and shortcuts.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🖱️</div>
-        <h3>Mouse</h3>
-        <p>
-          A mouse lets you move the pointer, click buttons,
-          select objects, and interact with applications.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🖥️</div>
-        <h3>Monitor</h3>
-        <p>
-          A monitor displays text, pictures, videos,
-          applications, and other visual information.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🔌</div>
-        <h3>Motherboard</h3>
-        <p>
-          The motherboard connects many computer components
-          and allows them to communicate.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- HOW COMPUTERS WORK -->
-  <section>
-
-    <div class="section-title">
-      <h2>🔄 How a Computer Works</h2>
-      <p>A simple way to understand the process.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">📥</div>
-        <h3>1. Input</h3>
-        <p>
-          You give the computer information using devices
-          such as a keyboard, mouse, microphone, or camera.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🧠</div>
-        <h3>2. Processing</h3>
-        <p>
-          The CPU and other components process the information
-          according to instructions.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💾</div>
-        <h3>3. Storage</h3>
-        <p>
-          Information can be saved in storage so it can
-          be used again later.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">📤</div>
-        <h3>4. Output</h3>
-        <p>
-          The computer gives you a result through the screen,
-          speakers, printer, or another output device.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- TYPING -->
-  <section id="typing">
-
-    <div class="section-title">
-      <h2>⌨️ Learn to Type Better</h2>
-      <p>Speed is useful, but accuracy comes first.</p>
-    </div>
-
-    <div class="typing-area">
-
-      <h3>Use Proper Finger Placement</h3>
-
-      <p>
-        Keep your fingers on the home row and use the correct finger
-        for each key. Try to look at the screen instead of the keyboard.
-      </p>
-
-      <div class="keyboard">
-
-        <div>
-          <span class="key">Q</span>
-          <span class="key">W</span>
-          <span class="key">E</span>
-          <span class="key">R</span>
-          <span class="key">T</span>
-          <span class="key">Y</span>
-          <span class="key">U</span>
-          <span class="key">I</span>
-          <span class="key">O</span>
-          <span class="key">P</span>
+            <div>
+                <span>Time</span>
+                <strong id="timer">60</strong>
+            </div>
         </div>
 
-        <div>
-          <span class="key">A</span>
-          <span class="key">S</span>
-          <span class="key">D</span>
-          <span class="key">F</span>
-          <span class="key">G</span>
-          <span class="key">H</span>
-          <span class="key">J</span>
-          <span class="key">K</span>
-          <span class="key">L</span>
+        <div class="lesson-title">
+            <p>Current Lesson</p>
+            <h1 id="lessonName">Home Row Basics</h1>
         </div>
 
-        <div>
-          <span class="key">Z</span>
-          <span class="key">X</span>
-          <span class="key">C</span>
-          <span class="key">V</span>
-          <span class="key">B</span>
-          <span class="key">N</span>
-          <span class="key">M</span>
+        <div id="textDisplay" class="text-display"></div>
+
+        <textarea
+            id="typingInput"
+            placeholder="Start typing here..."
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false">
+        </textarea>
+
+        <div class="target-box">
+            Target WPM:
+            <strong id="targetWpm">40</strong>
+            WPM
         </div>
 
-      </div>
+        <!-- KEYBOARD -->
+        <div id="keyboard" class="keyboard"></div>
 
-      <div class="cards">
-
-        <div class="card">
-          <h3>🎯 Accuracy</h3>
-          <p>
-            Focus on typing the correct letters before trying
-            to increase your speed.
-          </p>
+        <div class="practice-buttons">
+            <button id="restartBtn">↻ Restart</button>
+            <button id="nextBtn">Next Lesson →</button>
         </div>
 
-        <div class="card">
-          <h3>🖐️ Touch Typing</h3>
-          <p>
-            Learn where the keys are so you don't need
-            to constantly look down.
-          </p>
+        <div id="result" class="result hidden">
+            <h2>Lesson Complete 🎉</h2>
+            <p>Your speed: <strong id="finalWpm">0</strong> WPM</p>
+            <p>Your accuracy: <strong id="finalAccuracy">0%</strong></p>
+            <button id="againBtn">Practice Again</button>
         </div>
 
-        <div class="card">
-          <h3>⏱️ Practice</h3>
-          <p>
-            Short, regular practice sessions help build
-            typing skills over time.
-          </p>
+    </section>
+
+
+    <!-- COURSES -->
+    <section id="courses" class="page">
+
+        <div class="section-heading">
+            <p>Learn step by step</p>
+            <h1>Typing Courses</h1>
         </div>
 
-        <div class="card">
-          <h3>📈 Track Progress</h3>
-          <p>
-            Watch your words-per-minute and accuracy improve
-            as you practice.
-          </p>
+        <div id="courseList" class="course-list"></div>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+    <section id="settings" class="page">
+
+        <div class="section-heading">
+            <p>Customize your experience</p>
+            <h1>Keyboard & Settings</h1>
         </div>
 
-      </div>
+        <div class="settings-card">
 
-    </div>
+            <label>
+                Keyboard Layout
+                <select id="keyboardLayout">
+                    <option value="qwerty">QWERTY</option>
+                    <option value="azerty">AZERTY</option>
+                    <option value="qwertz">QWERTZ</option>
+                </select>
+            </label>
 
-  </section>
+            <label>
+                Target WPM
+                <input
+                    id="wpmInput"
+                    type="number"
+                    min="10"
+                    max="200"
+                    value="40">
+            </label>
 
+            <label>
+                Lesson Time
+                <select id="timeSetting">
+                    <option value="30">30 seconds</option>
+                    <option value="60" selected>60 seconds</option>
+                    <option value="120">120 seconds</option>
+                </select>
+            </label>
 
-  <!-- SHORTCUTS -->
-  <section id="shortcuts">
+        </div>
 
-    <div class="section-title">
-      <h2>⚡ Useful Keyboard Shortcuts</h2>
-      <p>Save time with these common shortcuts.</p>
-    </div>
+    </section>
 
-    <div class="shortcut">
-      <span>Copy</span>
-      <kbd>Ctrl + C</kbd>
-    </div>
+</main>
 
-    <div class="shortcut">
-      <span>Paste</span>
-      <kbd>Ctrl + V</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Cut</span>
-      <kbd>Ctrl + X</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Undo</span>
-      <kbd>Ctrl + Z</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Redo</span>
-      <kbd>Ctrl + Y</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Select All</span>
-      <kbd>Ctrl + A</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Save</span>
-      <kbd>Ctrl + S</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Find</span>
-      <kbd>Ctrl + F</kbd>
-    </div>
-
-    <div class="shortcut">
-      <span>Switch Applications</span>
-      <kbd>Alt + Tab</kbd>
-    </div>
-
-  </section>
-
-
-  <!-- PRACTICE -->
-  <section id="practice">
-
-    <div class="section-title">
-      <h2>🚀 Practice Your Typing</h2>
-      <p>Use these websites to train your typing skills.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card practice-card">
-        <div class="icon">🎓</div>
-        <h3>TypingClub</h3>
-
-        <p>
-          Structured typing lessons that teach touch typing
-          step by step.
-        </p>
-
-        <a href="https://www.typingclub.com/"
-           target="_blank"
-           rel="noopener">
-          Visit TypingClub →
-        </a>
-      </div>
-
-
-      <div class="card practice-card">
-        <div class="icon">⌨️</div>
-        <h3>Monkeytype</h3>
-
-        <p>
-          A clean typing test where you can practice speed,
-          accuracy, and different typing modes.
-        </p>
-
-        <a href="https://monkeytype.com/"
-           target="_blank"
-           rel="noopener">
-          Visit Monkeytype →
-        </a>
-      </div>
-
-
-      <div class="card practice-card">
-        <div class="icon">🏆</div>
-        <h3>Keybr</h3>
-
-        <p>
-          Practice touch typing while the system adapts
-          exercises to help you learn keyboard patterns.
-        </p>
-
-        <a href="https://www.keybr.com/"
-           target="_blank"
-           rel="noopener">
-          Visit Keybr →
-        </a>
-      </div>
-
-
-      <div class="card practice-card">
-        <div class="icon">📊</div>
-        <h3>10FastFingers</h3>
-
-        <p>
-          Test your typing speed and challenge yourself
-          to improve your WPM.
-        </p>
-
-        <a href="https://10fastfingers.com/"
-           target="_blank"
-           rel="noopener">
-          Visit 10FastFingers →
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL MESSAGE -->
-  <section>
-
-    <div class="info-box">
-
-      <h3>💙 Keep Practicing</h3>
-
-      <p>
-        You don't need to become fast in one day.
-        Build accuracy, learn proper technique, and practice consistently.
-        Your speed will develop naturally with experience.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <p>
-      <strong>KAIROS TYPING</strong>
-    </p>
-
-    <p>
-      Learn • Practice • Improve
-    </p>
-
-    <p>
-      © 2026 Kairos Typing
-    </p>
-
-  </footer>
-
-
-  <script>
-    // Simple scroll effect
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", function(event) {
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-          event.preventDefault();
-
-          target.scrollIntoView({
-            behavior: "smooth"
-          });
-        }
-      });
-    });
-  </script>
+<script src="script.js"></script>
 
 </body>
 </html>
