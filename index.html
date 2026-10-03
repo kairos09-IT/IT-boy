@@ -1,145 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kairos Type</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kairos Type V2</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <div class="logo">⌨️ Kairos Type</div>
+  <div class="logo">⌨️ Kairos Type</div>
 
-    <nav>
-        <button class="nav-btn active" data-page="practice">Practice</button>
-        <button class="nav-btn" data-page="courses">Courses</button>
-        <button class="nav-btn" data-page="settings">Settings</button>
-    </nav>
+  <nav>
+    <button class="nav-btn active" data-page="home">Home</button>
+    <button class="nav-btn" data-page="practice">Practice</button>
+    <button class="nav-btn" data-page="courses">Courses</button>
+    <button class="nav-btn" data-page="settings">Settings</button>
+  </nav>
 </header>
 
 <main>
 
-    <!-- PRACTICE -->
-    <section id="practice" class="page active">
+  <!-- HOME -->
+  <section id="home" class="page active">
 
-        <div class="top-info">
-            <div>
-                <span>WPM</span>
-                <strong id="wpm">0</strong>
-            </div>
+    <div class="hero">
+      <p class="eyebrow">YOUR TYPING JOURNEY</p>
+      <h1>Build your typing skills.</h1>
+      <p class="hero-text">
+        Learn proper technique, improve accuracy, and increase your typing speed one lesson at a time.
+      </p>
 
-            <div>
-                <span>Accuracy</span>
-                <strong id="accuracy">100%</strong>
-            </div>
+      <button id="continueBtn" class="primary-btn">
+        Continue Learning →
+      </button>
+    </div>
 
-            <div>
-                <span>Errors</span>
-                <strong id="errors">0</strong>
-            </div>
+    <div class="stats-grid">
 
-            <div>
-                <span>Time</span>
-                <strong id="timer">60</strong>
-            </div>
+      <div class="stat-card">
+        <span>Lessons Completed</span>
+        <strong id="completedCount">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Course Progress</span>
+        <strong id="progressPercent">0%</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Best WPM</span>
+        <strong id="bestWpm">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Average Accuracy</span>
+        <strong id="averageAccuracy">100%</strong>
+      </div>
+
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-header">
+        <div>
+          <p>Overall Progress</p>
+          <h2 id="progressTitle">Start your first lesson</h2>
         </div>
 
-        <div class="lesson-title">
-            <p>Current Lesson</p>
-            <h1 id="lessonName">Home Row Basics</h1>
+        <strong id="progressNumber">0%</strong>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- PRACTICE -->
+  <section id="practice" class="page">
+
+    <div class="practice-header">
+      <div>
+        <p class="eyebrow">CURRENT LESSON</p>
+        <h1 id="lessonName">Home Row Basics</h1>
+      </div>
+
+      <button id="backCourses" class="secondary-btn">
+        ← Courses
+      </button>
+    </div>
+
+    <div class="top-info">
+
+      <div>
+        <span>WPM</span>
+        <strong id="wpm">0</strong>
+      </div>
+
+      <div>
+        <span>Accuracy</span>
+        <strong id="accuracy">100%</strong>
+      </div>
+
+      <div>
+        <span>Errors</span>
+        <strong id="errors">0</strong>
+      </div>
+
+      <div>
+        <span>Time</span>
+        <strong id="timer">60</strong>
+      </div>
+
+    </div>
+
+    <div id="textDisplay" class="text-display"></div>
+
+    <textarea
+      id="typingInput"
+      placeholder="Start typing here..."
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false">
+    </textarea>
+
+    <div class="target-box">
+      Target:
+      <strong id="targetWpm">40</strong>
+      WPM
+    </div>
+
+    <div class="keyboard-title">
+      <span>Keyboard</span>
+      <span id="nextKeyText">Next key: F</span>
+    </div>
+
+    <div id="keyboard" class="keyboard"></div>
+
+    <div class="practice-buttons">
+      <button id="restartBtn" class="secondary-btn">↻ Restart</button>
+      <button id="nextBtn" class="primary-btn">Next Lesson →</button>
+    </div>
+
+    <div id="result" class="result hidden">
+
+      <div class="result-icon">🎉</div>
+
+      <h2>Lesson Complete!</h2>
+
+      <div class="result-stats">
+        <div>
+          <span>WPM</span>
+          <strong id="finalWpm">0</strong>
         </div>
 
-        <div id="textDisplay" class="text-display"></div>
-
-        <textarea
-            id="typingInput"
-            placeholder="Start typing here..."
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false">
-        </textarea>
-
-        <div class="target-box">
-            Target WPM:
-            <strong id="targetWpm">40</strong>
-            WPM
+        <div>
+          <span>Accuracy</span>
+          <strong id="finalAccuracy">0%</strong>
         </div>
 
-        <!-- KEYBOARD -->
-        <div id="keyboard" class="keyboard"></div>
-
-        <div class="practice-buttons">
-            <button id="restartBtn">↻ Restart</button>
-            <button id="nextBtn">Next Lesson →</button>
+        <div>
+          <span>Errors</span>
+          <strong id="finalErrors">0</strong>
         </div>
+      </div>
 
-        <div id="result" class="result hidden">
-            <h2>Lesson Complete 🎉</h2>
-            <p>Your speed: <strong id="finalWpm">0</strong> WPM</p>
-            <p>Your accuracy: <strong id="finalAccuracy">0%</strong></p>
-            <button id="againBtn">Practice Again</button>
-        </div>
+      <button id="againBtn" class="primary-btn">
+        Practice Again
+      </button>
 
-    </section>
+    </div>
 
-
-    <!-- COURSES -->
-    <section id="courses" class="page">
-
-        <div class="section-heading">
-            <p>Learn step by step</p>
-            <h1>Typing Courses</h1>
-        </div>
-
-        <div id="courseList" class="course-list"></div>
-
-    </section>
+  </section>
 
 
-    <!-- SETTINGS -->
-    <section id="settings" class="page">
+  <!-- COURSES -->
+  <section id="courses" class="page">
 
-        <div class="section-heading">
-            <p>Customize your experience</p>
-            <h1>Keyboard & Settings</h1>
-        </div>
+    <div class="section-heading">
+      <p class="eyebrow">LEARNING PATH</p>
+      <h1>Typing Courses</h1>
+      <p>Complete lessons to unlock the next ones.</p>
+    </div>
 
-        <div class="settings-card">
+    <div id="courseMap" class="course-map"></div>
 
-            <label>
-                Keyboard Layout
-                <select id="keyboardLayout">
-                    <option value="qwerty">QWERTY</option>
-                    <option value="azerty">AZERTY</option>
-                    <option value="qwertz">QWERTZ</option>
-                </select>
-            </label>
+  </section>
 
-            <label>
-                Target WPM
-                <input
-                    id="wpmInput"
-                    type="number"
-                    min="10"
-                    max="200"
-                    value="40">
-            </label>
 
-            <label>
-                Lesson Time
-                <select id="timeSetting">
-                    <option value="30">30 seconds</option>
-                    <option value="60" selected>60 seconds</option>
-                    <option value="120">120 seconds</option>
-                </select>
-            </label>
+  <!-- SETTINGS -->
+  <section id="settings" class="page">
 
-        </div>
+    <div class="section-heading">
+      <p class="eyebrow">CUSTOMIZE</p>
+      <h1>Settings</h1>
+    </div>
 
-    </section>
+    <div class="settings-card">
+
+      <label>
+        Keyboard Layout
+
+        <select id="keyboardLayout">
+          <option value="qwerty">QWERTY</option>
+          <option value="azerty">AZERTY</option>
+          <option value="qwertz">QWERTZ</option>
+        </select>
+      </label>
+
+      <label>
+        Target WPM
+
+        <input
+          id="wpmInput"
+          type="number"
+          min="10"
+          max="200"
+          value="40">
+      </label>
+
+      <label>
+        Lesson Time
+
+        <select id="timeSetting">
+          <option value="30">30 seconds</option>
+          <option value="60" selected>60 seconds</option>
+          <option value="120">120 seconds</option>
+        </select>
+      </label>
+
+    </div>
+
+  </section>
 
 </main>
 
